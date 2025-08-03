@@ -1,0 +1,44 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+metadata:
+  name: portfolio-demo
+  namespace: portfolio-demo
+
+# Namespace dla wszystkich zasobów
+namespace: portfolio-demo
+
+# Lista zasobów do wdrożenia
+resources:
+  - namespace.yaml
+  - configmap.yaml
+  - secret.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - hpa.yaml
+
+# Wspólne etykiety dla wszystkich zasobów
+commonLabels:
+  project: k8s-terraform-portfolio
+  managed-by: kustomize
+
+# Wspólne adnotacje
+commonAnnotations:
+  project.description: "K8s + Terraform Portfolio Demo"
+  deployment.date: "2025-01-08"
+
+# Prefiksy i sufiksy nazw
+namePrefix: ""
+nameSuffix: ""
+
+# Obrazy do zastąpienia
+images:
+  - name: portfolio-demo
+    newTag: latest
+
+# Repliki (można nadpisać)
+replicas:
+  - name: portfolio-app
+    count: 3
+

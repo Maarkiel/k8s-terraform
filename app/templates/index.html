@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-cube"></i> {{ app_name }}</h1>
+                <div class="version-badge">v{{ version }}</div>
+            </div>
+            <p class="subtitle">Demonstracja Kubernetes + Terraform w ramach nauki DevOps by Mateusz B. (Maarkiel)</p>
+            <div class="environment-badge environment-{{ environment }}">
+                <i class="fas fa-server"></i> {{ environment.upper() }}
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-info-circle"></i> Status Aplikacji</h2>
+                    </div>
+                    <div class="card-content">
+                        <div id="app-status" class="status-loading">
+                            <i class="fas fa-spinner fa-spin"></i> Ładowanie...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-tasks"></i> Zadania Projektu</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="task-filters">
+                            <button class="filter-btn active" data-status="all">Wszystkie</button>
+                            <button class="filter-btn" data-status="completed">Ukończone</button>
+                            <button class="filter-btn" data-status="in-progress">W trakcie</button>
+                            <button class="filter-btn" data-status="pending">Oczekujące</button>
+                        </div>
+                        <div id="tasks-list" class="tasks-loading">
+                            <i class="fas fa-spinner fa-spin"></i> Ładowanie zadań...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-cogs"></i> Informacje Środowiska</h2>
+                    </div>
+                    <div class="card-content">
+                        <div id="env-info" class="env-loading">
+                            <i class="fas fa-spinner fa-spin"></i> Ładowanie informacji...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-chart-line"></i> API Endpoints</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="api-endpoints">
+                            <div class="endpoint">
+                                <span class="method get">GET</span>
+                                <span class="path">/health</span>
+                                <span class="description">Health check</span>
+                            </div>
+                            <div class="endpoint">
+                                <span class="method get">GET</span>
+                                <span class="path">/api/status</span>
+                                <span class="description">Status aplikacji</span>
+                            </div>
+                            <div class="endpoint">
+                                <span class="method get">GET</span>
+                                <span class="path">/api/tasks</span>
+                                <span class="description">Lista zadań</span>
+                            </div>
+                            <div class="endpoint">
+                                <span class="method get">GET</span>
+                                <span class="path">/api/info</span>
+                                <span class="description">Informacje środowiska</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>
+                <i class="fab fa-docker"></i> Dockerized | 
+                <i class="fas fa-dharmachakra"></i> Kubernetes | 
+                <i class="fas fa-layer-group"></i> Terraform
+            </p>
+            <p>Portfolio Project - DevOps Demo</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: portfolio-config
+  namespace: portfolio-demo
+  labels:
+    app: portfolio-app
+    component: config
+data:
+  APP_NAME: "K8s-Terraform Portfolio Demo"
+  APP_VERSION: "1.0.0"
+  ENVIRONMENT: "production"
+  FLASK_ENV: "production"
+  PORT: "5000"
+  # Dodatkowe konfiguracje
+  LOG_LEVEL: "INFO"
+  WORKERS: "2"
+  TIMEOUT: "60"
+

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: portfolio-demo
+  labels:
+    name: portfolio-demo
+    purpose: demo
+    project: k8s-terraform-portfolio
+  annotations:
+    description: "Namespace for K8s + Terraform portfolio demonstration"
+    created-by: "terraform-k8s-demo"
+

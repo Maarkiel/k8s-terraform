@@ -836,8 +836,8 @@ cd terraform && terraform show
 
 ---
 
-**Autor**: [Twoje Imię]  
-**Data**: Styczeń 2025  
+**Autor**: Marky B 
+**Data**: Sierpień 2025  
 **Licencja**: MIT  
 
 *Ten projekt został stworzony w celach edukacyjnych i demonstracyjnych dla portfolio DevOps.*
